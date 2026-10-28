@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos Climáticos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="login-tela" class="login-container">
+    <form id="form-login" class="login-card">
+      <div class="simbolo">☁</div>
+      <h1>Eventos Climáticos</h1>
+      <p>Entre para acompanhar os registros</p>
+      <label for="email">E-mail</label>
+      <input id="email" type="email" placeholder="seu@email.com" required>
+      <label for="senha">Senha</label>
+      <input id="senha" type="password" placeholder="Sua senha" required>
+      <button type="submit">Entrar</button>
+      <p id="erro-login" class="erro"></p>
+      <small>Teste: ana@email.com / senha123</small>
+    </form>
+  </section>
+
+  <main id="home-tela" hidden>
+    <header>
+      <div><span class="logo">☁</span><strong>Eventos Climáticos</strong></div>
+      <div class="perfil"><span id="nome-usuario"></span><button id="sair" class="botao-secundario">Sair</button></div>
+    </header>
+    <section class="conteudo">
+      <div class="titulo-linha">
+        <div><p class="sobretitulo">PAINEL DE REGISTROS</p><h1>Eventos climáticos</h1><p class="subtexto">Consulte e mantenha os registros atualizados.</p></div>
+        <button id="novo-evento">+ Novo evento</button>
+      </div>
+      <div class="resumo"><div><span>Registros cadastrados</span><strong id="total-eventos">0</strong></div><div><span>Tipos de evento</span><strong id="total-tipos">0</strong></div></div>
+      <section id="formulario-area" class="painel" hidden>
+        <h2 id="titulo-form">Novo evento</h2>
+        <form id="form-evento">
+          <input id="evento-id" type="hidden">
+          <div class="campos">
+            <div><label for="cidade">Cidade *</label><input id="cidade" required maxlength="50"></div>
+            <div><label for="tipo">Tipo de evento *</label><select id="tipo" required><option value="">Selecione</option><option>Tempestade</option><option>Vendaval</option><option>Queimada</option><option>Geada</option><option>Baixa umidade</option><option>Enchente</option><option>Onda de calor</option><option>Outro</option></select></div>
+            <div><label for="temperatura">Temperatura máxima (°C)</label><input id="temperatura" type="number" step="0.1"></div>
+            <div><label for="data">Data</label><input id="data" type="date"></div>
+            <div class="campo-largo"><label for="impacto">Nível de impacto *</label><input id="impacto" required maxlength="100" placeholder="Ex.: alagamentos em áreas urbanas"></div>
+          </div>
+          <div class="acoes"><button type="button" id="cancelar" class="botao-secundario">Cancelar</button><button type="submit">Salvar evento</button></div>
+          <p id="erro-form" class="erro"></p>
+        </form>
+      </section>
+      <section class="painel tabela-painel">
+        <div class="tabela-topo"><h2>Últimos registros</h2><button id="atualizar" class="botao-secundario">Atualizar</button></div>
+        <div class="tabela-wrap"><table><thead><tr><th>Cidade</th><th>Tipo</th><th>Temperatura</th><th>Data</th><th>Impacto</th><th>Ações</th></tr></thead><tbody id="lista-eventos"></tbody></table></div>
+        <p id="mensagem-vazia" class="vazio" hidden>Nenhum evento cadastrado.</p>
+      </section>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
